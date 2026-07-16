@@ -1,0 +1,440 @@
+/* Revenue.css */
+
+.revenue {
+  position: relative;
+  background: linear-gradient(175deg, #f8fbf8 0%, #f0f7ec 35%, #edf5f9 65%, #f8fbf8 100%);
+  padding: 6rem 0;
+  overflow: hidden;
+}
+
+/* Background Money/Value Pattern */
+.revenue::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 15% 20%, rgba(234, 246, 221, 0.5) 0%, transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(234, 245, 252, 0.5) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(103, 180, 55, 0.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* Subtle Geometric Pattern */
+.revenue::after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  width: 300px;
+  height: 300px;
+  background-image: 
+    linear-gradient(45deg, rgba(103, 180, 55, 0.04) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(103, 180, 55, 0.04) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(45, 143, 213, 0.04) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(45, 143, 213, 0.04) 75%);
+  background-size: 60px 60px;
+  background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Section Heading */
+.section-heading {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, rgba(234, 246, 221, 0.9), rgba(234, 245, 252, 0.9));
+  color: var(--primary-dark);
+  padding: 0.5rem 1.5rem;
+  border-radius: 100px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(103, 180, 55, 0.2);
+  letter-spacing: 0.02em;
+  backdrop-filter: blur(10px);
+}
+
+.section-tag::before {
+  content: '💰';
+  font-size: 0.9rem;
+}
+
+.section-heading h2 {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: var(--heading);
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.section-heading p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Revenue Grid */
+.revenue-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Central Connector (Visible on Desktop) */
+.revenue-grid::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(103, 180, 55, 0.05), rgba(45, 143, 213, 0.05));
+  border: 2px dashed rgba(103, 180, 55, 0.15);
+  z-index: 0;
+  pointer-events: none;
+  animation: rotateSlow 30s linear infinite;
+}
+
+@keyframes rotateSlow {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Revenue Card */
+.revenue-card {
+  background: var(--white);
+  border-radius: 24px;
+  padding: 2.5rem;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(103, 180, 55, 0.08);
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+/* Card Top Accent Border */
+.revenue-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease;
+  border-radius: 4px 4px 0 0;
+}
+
+/* Different accent colors per card */
+.revenue-card:nth-child(1)::before {
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+}
+
+.revenue-card:nth-child(2)::before {
+  background: linear-gradient(90deg, var(--secondary), var(--secondary-dark));
+}
+
+.revenue-card:nth-child(3)::before {
+  background: linear-gradient(90deg, #f59e0b, #d97706);
+}
+
+.revenue-card:nth-child(4)::before {
+  background: linear-gradient(90deg, #8b5cf6, #7c3aed);
+}
+
+/* Card Background Pattern */
+.revenue-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle at bottom right, rgba(103, 180, 55, 0.03) 0%, transparent 70%);
+  border-radius: 50%;
+  transition: all 0.6s ease;
+}
+
+.revenue-card:hover::before {
+  transform: scaleX(1);
+}
+
+.revenue-card:hover::after {
+  width: 250px;
+  height: 250px;
+}
+
+/* Card Hover Effects */
+.revenue-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
+  border-color: rgba(103, 180, 55, 0.2);
+}
+
+/* Revenue Icon */
+.revenue-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.75rem;
+  position: relative;
+  z-index: 1;
+  transition: all 0.5s ease;
+}
+
+/* Different icon styles per card */
+.revenue-card:nth-child(1) .revenue-icon {
+  background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+  color: #16a34a;
+  box-shadow: 0 8px 25px rgba(22, 163, 74, 0.15);
+}
+
+.revenue-card:nth-child(2) .revenue-icon {
+  background: linear-gradient(135deg, var(--light-blue), #bfdbfe);
+  color: var(--secondary-dark);
+  box-shadow: 0 8px 25px rgba(30, 111, 184, 0.15);
+}
+
+.revenue-card:nth-child(3) .revenue-icon {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  color: #d97706;
+  box-shadow: 0 8px 25px rgba(217, 119, 6, 0.15);
+}
+
+.revenue-card:nth-child(4) .revenue-icon {
+  background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+  color: #7c3aed;
+  box-shadow: 0 8px 25px rgba(124, 58, 237, 0.15);
+}
+
+.revenue-card:hover .revenue-icon {
+  transform: scale(1.1) rotate(-5deg);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Revenue Amount Indicator */
+.revenue-amount {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text);
+  opacity: 0.5;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.revenue-card:hover .revenue-amount {
+  opacity: 0.8;
+}
+
+/* Card Content */
+.revenue-card h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--heading);
+  margin-bottom: 0.875rem;
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+.revenue-card:hover h3 {
+  color: var(--primary-dark);
+}
+
+.revenue-card p {
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+}
+
+/* Growth Indicator Arrows */
+.revenue-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.revenue-card:nth-child(1) .revenue-indicator {
+  color: #16a34a;
+}
+
+.revenue-card:nth-child(2) .revenue-indicator {
+  color: var(--secondary-dark);
+}
+
+.revenue-card:nth-child(3) .revenue-indicator {
+  color: #d97706;
+}
+
+.revenue-card:nth-child(4) .revenue-indicator {
+  color: #7c3aed;
+}
+
+.revenue-indicator svg {
+  transition: transform 0.3s ease;
+}
+
+.revenue-card:hover .revenue-indicator svg {
+  transform: translateY(-2px);
+}
+
+/* Connecting Lines Between Cards */
+.revenue-card .connector {
+  position: absolute;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.revenue-card:nth-child(1) .connector {
+  bottom: -1rem;
+  right: -1rem;
+  width: 2rem;
+  height: 2px;
+  transform: rotate(-45deg);
+}
+
+.revenue-card:nth-child(2) .connector {
+  bottom: -1rem;
+  left: -1rem;
+  width: 2rem;
+  height: 2px;
+  transform: rotate(45deg);
+}
+
+/* Revenue Flow Animation */
+@keyframes revenueFlow {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.revenue-grid::after {
+  content: '⟳';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: rgba(103, 180, 55, 0.2);
+  z-index: 0;
+  pointer-events: none;
+  animation: revenueFlow 3s ease-in-out infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .revenue-grid {
+    gap: 1.5rem;
+  }
+
+  .revenue-grid::before,
+  .revenue-grid::after {
+    display: none;
+  }
+
+  .revenue-card {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .revenue {
+    padding: 4rem 0;
+  }
+
+  .section-heading h2 {
+    font-size: 2rem;
+  }
+
+  .section-heading p {
+    font-size: 1rem;
+  }
+
+  .revenue-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .revenue-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+  }
+
+  .revenue-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .revenue-card h3 {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .revenue-grid {
+    grid-template-columns: 1fr;
+    max-width: 450px;
+    margin: 0 auto;
+  }
+
+  .section-heading {
+    margin-bottom: 2.5rem;
+  }
+
+  .revenue-card {
+    padding: 1.75rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .revenue *,
+  .revenue *::before,
+  .revenue *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
