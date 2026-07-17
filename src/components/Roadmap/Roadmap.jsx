@@ -1,51 +1,7 @@
 import { motion } from "framer-motion";
-import {
-  FlaskConical,
-  Users,
-  Handshake,
-  Sprout,
-  Globe,
-} from "lucide-react";
+import { ROADMAP } from "../../utils/constants"
 
 import "./Roadmap.css";
-
-const roadmap = [
-  {
-    year: "Phase 01",
-    icon: <FlaskConical size={28} />,
-    title: "Build R&D Capability",
-    description:
-      "Develop a dedicated aquaponics research and innovation center to improve farming efficiency.",
-  },
-  {
-    year: "Phase 02",
-    icon: <Users size={28} />,
-    title: "Farmer Network Expansion",
-    description:
-      "Train and onboard local farmers to adopt scalable aquaponics farming systems.",
-  },
-  {
-    year: "Phase 03",
-    icon: <Handshake size={28} />,
-    title: "Market Linkages",
-    description:
-      "Strengthen partnerships with retailers, aggregators, and institutional buyers.",
-  },
-  {
-    year: "Phase 04",
-    icon: <Sprout size={28} />,
-    title: "Expand Crop Portfolio",
-    description:
-      "Introduce premium vegetables and fish varieties to diversify revenue streams.",
-  },
-  {
-    year: "Phase 05",
-    icon: <Globe size={28} />,
-    title: "Scale Across India",
-    description:
-      "Build a standardized and replicable aquaponics model for nationwide expansion.",
-  },
-];
 
 const Roadmap = () => {
   return (
@@ -78,35 +34,35 @@ const Roadmap = () => {
 
         <div className="timeline">
 
-          {roadmap.map((item, index) => (
+          {ROADMAP.map((item, index) => {
+            const Icon = item.icon;
 
-            <motion.div
-              className="timeline-item"
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                delay: index * 0.15,
-                duration: 0.6,
-              }}
-            >
+            return (
+              <motion.div
+                className="timeline-item"
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  delay: index * 0.15,
+                  duration: 0.6,
+                }}
+              >
+                <div className="timeline-icon">
+                  <Icon size={28} />
+                </div>
 
-              <div className="timeline-icon">
-                {item.icon}
-              </div>
+                <span className="timeline-phase">
+                  {item.year}
+                </span>
 
-              <span className="timeline-phase">
-                {item.year}
-              </span>
+                <h3>{item.title}</h3>
 
-              <h3>{item.title}</h3>
-
-              <p>{item.description}</p>
-
-            </motion.div>
-
-          ))}
+                <p>{item.description}</p>
+              </motion.div>
+            );
+          })}
 
         </div>
 

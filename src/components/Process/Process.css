@@ -1,0 +1,131 @@
+.process{
+    position:relative;
+    padding:6rem 0;
+    overflow:hidden;
+    background:linear-gradient(175deg,var(--bg) 0%,#f0f7ec 50%,#edf5f9 100%);
+}
+
+.process::before{
+    content:"";
+    position:absolute;
+    width:380px;
+    height:380px;
+    left:-100px;
+    top:0;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(234,246,221,.6),transparent 70%);
+}
+
+.process::after{
+    content:"";
+    position:absolute;
+    width:320px;
+    height:320px;
+    right:-80px;
+    bottom:0;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(234,245,252,.7),transparent 70%);
+}
+
+.process-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+    position:relative;
+    margin-top:60px;
+}
+
+.process-card{
+    position:relative;
+    background:#fff;
+    padding:2.2rem;
+    border-radius:24px;
+    overflow:hidden;
+    border:1px solid rgba(103,180,55,.08);
+    transition:.4s;
+    box-shadow:0 12px 30px rgba(0,0,0,.05);
+}
+
+.process-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 25px 50px rgba(0,0,0,.1);
+}
+
+.process-card::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:0;
+    width:70%;
+    height:3px;
+    transform:translateX(-50%) scaleX(0);
+    transition:.4s;
+    background:linear-gradient(90deg,transparent,var(--secondary),transparent);
+}
+
+.process-card:hover::after{
+    transform:translateX(-50%) scaleX(1);
+}
+
+.process-number{
+    position:absolute;
+    top:20px;
+    right:20px;
+    font-size:3rem;
+    font-weight:800;
+    color:rgba(0,0,0,.04);
+}
+
+.process-icon{
+    width:60px;
+    height:60px;
+    border-radius:18px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:24px;
+    background:linear-gradient(135deg,#eaf6dd,#d9f1c3);
+    color:var(--primary);
+    transition:.4s;
+}
+
+.process-card:hover .process-icon{
+    transform:rotate(-8deg) scale(1.08);
+}
+
+.process-card h3{
+    font-size:1.25rem;
+    font-weight:700;
+    margin-bottom:15px;
+    color:var(--heading);
+}
+
+.process-card p{
+    color:var(--text);
+    line-height:1.7;
+}
+
+@media(max-width:992px){
+
+.process-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:768px){
+
+    .process{
+        padding:4rem 0;
+    }
+
+    .process-grid{
+        grid-template-columns:1fr;
+        gap:20px;
+    }
+
+    .process-card{
+        padding:1.8rem;
+    }
+
+}

@@ -109,26 +109,37 @@ const Footer = () => {
 
               <p>
                 <Phone size={18} />
-                <span>+91 97175 94510</span>
+                <a href="tel:+919717594510">
+                  +91 97175 94510
+                </a>
               </p>
 
               <p>
                 <Phone size={18} />
-                <span>+91 82771 99510</span>
+                <a href="tel:+918277199510">
+                  +91 82771 99510
+                </a>
               </p>
 
               <p>
                 <Mail size={18} />
-                <span>gillsandgreensbluehills@gmail.com</span>
+                <a href="mailto:gillsandgreensbluehills@gmail.com">
+                  gillsandgreensbluehills@gmail.com
+                </a>
               </p>
 
               <p>
                 <MapPin size={18} />
-                <span>
-                  No. 5/130-C, Village Jackanarai,
-                  Aravenu, Kotagiri,
-                  Nilgiris, Tamil Nadu - 643201
-                </span>
+
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=No.+5/130-C,+Village+Jackanarai,+Aravenu,+Kotagiri,+Nilgiris,+Tamil+Nadu+643201"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {`No. 5/130-C, Village Jackanarai,
+              Aravenu, Kotagiri,
+              Nilgiris, Tamil Nadu - 643201`}
+                </a>
               </p>
 
             </div>

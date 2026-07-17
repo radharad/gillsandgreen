@@ -1,45 +1,12 @@
 import { motion } from "framer-motion";
-import {
-  GraduationCap,
-  Briefcase,
-  Award,
-} from "lucide-react";
+import { FOUNDERS } from "../../utils/constants";
+import { GraduationCap } from "lucide-react";
 
 import "./Founder.css";
 
-const founders = [
-  {
-    id: 1,
-    image: "/images/founder.jpg",
-    name: "Jeyaraj Mani",
-    designation: "Founder",
-
-    icon: <Award size={22} />,
-
-    description:
-      "Retired Sergeant from the Indian Air Force with over 20 years of disciplined technical service. Passionate about sustainable agriculture and climate-resilient farming models that empower farmers.",
-
-    education: "M.Sc. Mathematics",
-  },
-
-  {
-    id: 2,
-    image: "/images/co-founder.jpg",
-    name: "Swathi Murugan",
-    designation: "Co-Founder",
-
-    icon: <Briefcase size={22} />,
-
-    description:
-      "Technology professional with expertise in software development, digital transformation, and process optimization. Driving innovation through scalable and transparent farming solutions.",
-
-    education: "B.Tech Information Technology",
-  },
-];
-
 const Founder = () => {
   return (
-    <section className="founder section">
+    <section className="founder section" id="founder">
 
       <div className="container">
 
@@ -71,56 +38,50 @@ const Founder = () => {
 
         <div className="founder-grid">
 
-          {founders.map((person, index) => (
+          {FOUNDERS.map((person, index) => {
+            const Icon = person.icon;
 
-            <motion.div
-              key={person.id}
-              className="founder-card"
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                delay: index * .2,
-                duration: .7,
-              }}
-            >
-
-              <div className="founder-image">
-
-                <img
-                  src={person.image}
-                  alt={person.name}
-                />
-
-              </div>
-
-              <div className="founder-content">
-
-                <div className="founder-icon">
-                  {person.icon}
+            return (
+              <motion.div
+                key={person.id}
+                className="founder-card"
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  delay: index * 0.2,
+                  duration: 0.7,
+                }}
+              >
+                <div className="founder-image">
+                  <img
+                    src={person.image}
+                    alt={person.name}
+                    loading="lazy"
+                  />
                 </div>
 
-                <h3>{person.name}</h3>
+                <div className="founder-content">
+                  <div className="founder-icon">
+                    <Icon size={22} />
+                  </div>
 
-                <span>{person.designation}</span>
+                  <h3>{person.name}</h3>
 
-                <div className="education">
+                  <span>{person.designation}</span>
 
-                  <GraduationCap size={18} />
+                  <div className="education">
+                    <GraduationCap size={18} />
+                    <p>{person.education}</p>
+                  </div>
 
-                  <p>{person.education}</p>
-
+                  <p className="description">
+                    {person.description}
+                  </p>
                 </div>
-
-                <p className="description">
-                  {person.description}
-                </p>
-
-              </div>
-
-            </motion.div>
-
-          ))}
+              </motion.div>
+            );
+          })}
 
         </div>
 

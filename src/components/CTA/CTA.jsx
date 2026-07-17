@@ -37,12 +37,26 @@ const CTA = () => {
 
           <div className="cta-buttons">
 
-            <button className="btn-primary">
+            <button
+              className="btn-primary"
+              onClick={() =>
+                document.getElementById("contact")?.scrollIntoView({
+                  behavior: "smooth",
+                })
+              }
+            >
               Become a Partner
               <ArrowRight size={18} />
             </button>
 
-            <button className="btn-secondary">
+            <button
+              className="btn-secondary"
+              onClick={() =>
+                document.getElementById("contact")?.scrollIntoView({
+                  behavior: "smooth",
+                })
+              }
+            >
               Contact Us
             </button>
 

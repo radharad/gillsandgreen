@@ -41,15 +41,15 @@
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
   gap: 4rem;
   align-items: center;
-  padding: 6rem 2rem;
+  padding: 6rem 2rem !important;
 }
 
 /* Content */
 .hero__content {
-  max-width: 600px;
+  max-width: 650px;
 }
 
 /* Badge */
@@ -130,13 +130,16 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 2px solid var(--white) !important;
 }
 
 .btn-primary:hover {
-  background: var(--secondary);
+  background: transparent !important;
   color: var(--white);
   transform: translateY(-2px);
   box-shadow: 0 8px 30px rgba(45, 143, 213, 0.35);
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  backdrop-filter: blur(10px);
 }
 
 .btn-primary svg {
@@ -164,10 +167,12 @@
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.5);
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  background: var(--white) !important;
+  color: var(--primary-dark);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 2px solid var(--white);
+  backdrop-filter: unset;
 }
 
 /* Floating Cards */
@@ -197,7 +202,8 @@
 }
 
 .hero-card svg {
-  color: var(--secondary);
+  color: var(--white);
+  margin: auto;
   margin-bottom: 0.75rem;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }

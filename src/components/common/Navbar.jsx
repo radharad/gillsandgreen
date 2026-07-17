@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { NAV_LINKS } from "../../utils/constants";
+
 import {
   Menu,
   X,
@@ -7,33 +9,6 @@ import {
 } from "lucide-react";
 
 import "./Navbar.css";
-
-const navLinks = [
-  {
-    name: "Home",
-    href: "#hero",
-  },
-  {
-    name: "About",
-    href: "#about",
-  },
-  {
-    name: "Solution",
-    href: "#solution",
-  },
-  {
-    name: "Products",
-    href: "#products",
-  },
-  {
-    name: "Leadership",
-    href: "#founder",
-  },
-  {
-    name: "Contact",
-    href: "#contact",
-  },
-];
 
 const Navbar = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -72,7 +47,7 @@ const Navbar = () => {
 
         <nav className="nav-links">
 
-          {navLinks.map((item) => (
+          {NAV_LINKS.map((item) => (
 
             <a
               key={item.name}
@@ -87,12 +62,16 @@ const Navbar = () => {
 
         {/* CTA */}
 
-        <button className="nav-btn">
-
+        <button
+          className="nav-btn"
+          onClick={() =>
+            document.getElementById("contact")?.scrollIntoView({
+              behavior: "smooth",
+            })
+          }
+        >
           Get Started
-
           <ArrowRight size={18} />
-
         </button>
 
         {/* Mobile Icon */}
@@ -116,7 +95,7 @@ const Navbar = () => {
         }`}
       >
 
-        {navLinks.map((item) => (
+        {NAV_LINKS.map((item) => (
 
           <a
             key={item.name}

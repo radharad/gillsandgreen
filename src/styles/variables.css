@@ -1,0 +1,57 @@
+/* Variable CSS */
+
+/* CSS Variables (Global Brand Colors) */
+:root {
+  /* Primary Colors */
+  --primary: #67B437;
+  --primary-dark: #4E8E2B;
+
+  /* Secondary Colors */
+  --secondary: #2D8FD5;
+  --secondary-dark: #1E6FB8;
+
+  /* Light Variants */
+  --light-green: #EAF6DD;
+  --light-blue: #EAF5FC;
+
+  /* Background & Surfaces */
+  --bg: #F8FBF8;
+  --white: #FFFFFF;
+
+  /* Text Colors */
+  --heading: #1E293B;
+  --text: #64748B;
+  --text-light: #94A3B8;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.1);
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Font */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 
+                   Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+@media (prefers-contrast: high) {
+  :root {
+    --primary: #4E8E2B;
+    --primary-dark: #3B6B20;
+    --secondary: #1E6FB8;
+    --secondary-dark: #15528A;
+    --text: #1E293B;
+    --heading: #0F172A;
+  }
+}

@@ -294,7 +294,7 @@
 
 /* Responsive Design */
 @media (max-width: 968px) {
-  .nav-links {
+  .nav-links, .mobile-menu::after {
     display: none;
   }
 
@@ -310,6 +310,25 @@
 
   .mobile-menu {
     display: block;
+  }
+
+  .mobile-menu.show .logo span {
+    background: linear-gradient(175deg, #1a2f1a 0%, #1e3a1e 30%, #1a2f3a 100%) !important;
+  }
+
+  .navbar:has(.mobile-menu.show) .logo span {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .navbar:has(.mobile-menu.show) .menu-btn {
+    border-color: var(--heading);
+  }
+
+  .navbar:has(.mobile-menu.show) .menu-btn .lucide-x {
+    color: var(--heading);
   }
 }
 

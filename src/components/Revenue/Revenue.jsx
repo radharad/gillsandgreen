@@ -1,39 +1,7 @@
 import { motion } from "framer-motion";
-import {
-  Fish,
-  Building2,
-  Recycle,
-  Users,
-} from "lucide-react";
+import { REVENUEDATA }  from "../../utils/constants"
 
 import "./Revenue.css";
-
-const revenueData = [
-  {
-    icon: <Fish size={34} />,
-    title: "Dual Revenue Streams",
-    description:
-      "Generate recurring income through the sale of premium fish and pesticide-free leafy greens.",
-  },
-  {
-    icon: <Building2 size={34} />,
-    title: "B2B Institutional Supply",
-    description:
-      "Long-term contracts with retailers, hotels, restaurants, and institutions ensure stable revenue.",
-  },
-  {
-    icon: <Recycle size={34} />,
-    title: "Value-Added Products",
-    description:
-      "Organic vermicompost created from fish waste provides an additional sustainable income stream.",
-  },
-  {
-    icon: <Users size={34} />,
-    title: "Farmer Partnership Model",
-    description:
-      "Scale rapidly by partnering with farmers, enabling shared growth while minimizing capital investment.",
-  },
-];
 
 const Revenue = () => {
   return (
@@ -66,31 +34,31 @@ const Revenue = () => {
 
         <div className="revenue-grid">
 
-          {revenueData.map((item, index) => (
+          {REVENUEDATA.map((item, index) => {
+            const Icon = item.icon;
 
-            <motion.div
-              key={index}
-              className="revenue-card"
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                delay: index * 0.15,
-                duration: 0.6,
-              }}
-            >
+            return (
+              <motion.div
+                key={index}
+                className="revenue-card"
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  delay: index * 0.15,
+                  duration: 0.6,
+                }}
+              >
+                <div className="revenue-icon">
+                  <Icon size={34} />
+                </div>
 
-              <div className="revenue-icon">
-                {item.icon}
-              </div>
+                <h3>{item.title}</h3>
 
-              <h3>{item.title}</h3>
-
-              <p>{item.description}</p>
-
-            </motion.div>
-
-          ))}
+                <p>{item.description}</p>
+              </motion.div>
+            );
+          })}
 
         </div>
 

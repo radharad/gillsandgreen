@@ -1,39 +1,7 @@
 import { motion } from "framer-motion";
-import {
-  ShieldCheck,
-  Fish,
-  Mountain,
-  Users,
-} from "lucide-react";
+import { USPDATA } from "../../utils/constants"
 
 import "./USP.css";
-
-const uspData = [
-  {
-    icon: <ShieldCheck size={34} />,
-    title: "Chemical-Free Farming",
-    description:
-      "Fresh vegetables and naturally raised fish without pesticides or chemical fertilizers.",
-  },
-  {
-    icon: <Fish size={34} />,
-    title: "Dual Revenue Model",
-    description:
-      "Generate income from premium fish and organic greens using one integrated farming ecosystem.",
-  },
-  {
-    icon: <Mountain size={34} />,
-    title: "First Mover Advantage",
-    description:
-      "Pioneering commercial aquaponics farming in the Nilgiris with scalable sustainable solutions.",
-  },
-  {
-    icon: <Users size={34} />,
-    title: "Farmer Partnership",
-    description:
-      "Helping local farmers adopt aquaponics through training, technology and market support.",
-  },
-];
 
 const USP = () => {
   return (
@@ -69,31 +37,31 @@ const USP = () => {
 
         <div className="usp-grid">
 
-          {uspData.map((item, index) => (
+          {USPDATA.map((item, index) => {
+            const Icon = item.icon;
 
-            <motion.div
-              key={index}
-              className="usp-card"
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                delay: index * 0.15,
-                duration: 0.6,
-              }}
-            >
+            return (
+              <motion.div
+                key={index}
+                className="usp-card"
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  delay: index * 0.15,
+                  duration: 0.6,
+                }}
+              >
+                <div className="usp-icon">
+                  <Icon size={34} />
+                </div>
 
-              <div className="usp-icon">
-                {item.icon}
-              </div>
+                <h3>{item.title}</h3>
 
-              <h3>{item.title}</h3>
-
-              <p>{item.description}</p>
-
-            </motion.div>
-
-          ))}
+                <p>{item.description}</p>
+              </motion.div>
+            );
+          })}
 
         </div>
 

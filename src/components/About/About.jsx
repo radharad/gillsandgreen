@@ -1,43 +1,12 @@
 import { motion } from "framer-motion";
-import {
-  Leaf,
-  Fish,
-  Droplets,
-  Users,
-} from "lucide-react";
+import { FEATURES } from "../../utils/constants";
 
 import "./About.css";
-
-const features = [
-  {
-    icon: <Leaf size={30} />,
-    title: "Organic Farming",
-    description:
-      "Pesticide-free leafy greens cultivated using sustainable aquaponics."
-  },
-  {
-    icon: <Fish size={30} />,
-    title: "Chemical-Free Fish",
-    description:
-      "Naturally raised Tilapia and Koi fish in a closed-loop ecosystem."
-  },
-  {
-    icon: <Droplets size={30} />,
-    title: "90% Water Saving",
-    description:
-      "Recirculating water technology dramatically reduces water consumption."
-  },
-  {
-    icon: <Users size={30} />,
-    title: "Farmer Empowerment",
-    description:
-      "Helping local farmers adopt innovative and profitable farming methods."
-  },
-];
+import aboutImg from "/images/about.jpg";
 
 const About = () => {
   return (
-    <section className="about section">
+    <section className="about section" id="about">
 
       <div className="container">
 
@@ -81,8 +50,9 @@ const About = () => {
           >
 
             <img
-              src="/images/about.jpg"
+              src={aboutImg}
               alt="Aquaponics Farming"
+              loading="lazy"
             />
 
           </motion.div>
@@ -121,24 +91,28 @@ const About = () => {
 
         <div className="feature-grid">
 
-          {features.map((item, index) => (
-            <motion.div
-              className="feature-card"
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * .15 }}
-            >
-              <div className="icon">
-                {item.icon}
-              </div>
+          {FEATURES.map((item, index) => {
+            const Icon = item.icon;
 
-              <h4>{item.title}</h4>
+            return (
+              <motion.div
+                className="feature-card"
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.15 }}
+              >
+                <div className="icon">
+                  <Icon size={30} />
+                </div>
 
-              <p>{item.description}</p>
-            </motion.div>
-          ))}
+                <h4>{item.title}</h4>
+
+                <p>{item.description}</p>
+              </motion.div>
+            );
+          })}
 
         </div>
 

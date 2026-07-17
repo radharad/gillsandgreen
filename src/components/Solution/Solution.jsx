@@ -1,51 +1,12 @@
 import { motion } from "framer-motion";
-import {
-  Fish,
-  Leaf,
-  Droplets,
-  Users,
-  Store,
-  ArrowRight,
-} from "lucide-react";
+import { SOLUTIONSMAP } from "../../utils/constants"
+import { ArrowRight } from "lucide-react";
 
 import "./Solution.css";
 
-const solutions = [
-  {
-    icon: <Fish size={32} />,
-    title: "Aquaponics Farming",
-    description:
-      "An integrated fish and plant cultivation system that creates a natural, self-sustaining ecosystem.",
-  },
-  {
-    icon: <Droplets size={32} />,
-    title: "90% Less Water Usage",
-    description:
-      "Water continuously circulates between fish tanks and grow beds, dramatically reducing water consumption.",
-  },
-  {
-    icon: <Leaf size={32} />,
-    title: "Chemical-Free Production",
-    description:
-      "Fish waste naturally nourishes plants, eliminating the need for chemical fertilizers and pesticides.",
-  },
-  {
-    icon: <Users size={32} />,
-    title: "Farmer Empowerment",
-    description:
-      "Training, technical guidance, and scalable farming models help farmers increase long-term income.",
-  },
-  {
-    icon: <Store size={32} />,
-    title: "Direct Market Linkage",
-    description:
-      "Connecting farmers with retailers and institutional buyers ensures stable demand and fair pricing.",
-  },
-];
-
 const Solution = () => {
   return (
-    <section className="solution section">
+    <section className="solution section" id="solution">
 
       <div className="container">
 
@@ -84,36 +45,38 @@ const Solution = () => {
             <img
               src="/images/solution.png"
               alt="Aquaponics System"
+              loading="lazy"
             />
           </motion.div>
 
           <div className="solution-grid">
 
-            {solutions.map((item, index) => (
-              <motion.div
-                key={index}
-                className="solution-card"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  delay: index * 0.12,
-                }}
-              >
-                <div className="solution-icon">
-                  {item.icon}
-                </div>
+            {SOLUTIONSMAP.map((item, index) => {
+              const Icon = item.icon;
 
-                <div>
+              return (
+                <motion.div
+                  key={index}
+                  className="solution-card"
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    delay: index * 0.12,
+                  }}
+                >
+                  <div className="solution-icon">
+                    <Icon size={32} />
+                  </div>
 
-                  <h3>{item.title}</h3>
+                  <div>
+                    <h3>{item.title}</h3>
 
-                  <p>{item.description}</p>
-
-                </div>
-
-              </motion.div>
-            ))}
+                    <p>{item.description}</p>
+                  </div>
+                </motion.div>
+              );
+            })}
 
           </div>
 
@@ -126,10 +89,17 @@ const Solution = () => {
           viewport={{ once: true }}
         >
 
-          <button className="btn-primary">
-            Learn More
-            <ArrowRight size={18} />
-          </button>
+        <button
+          className="btn-primary"
+          onClick={() =>
+            document.getElementById("solution")?.scrollIntoView({
+              behavior: "smooth",
+            })
+          }
+        >
+          Learn More
+          <ArrowRight size={18} />
+        </button>
 
         </motion.div>
 

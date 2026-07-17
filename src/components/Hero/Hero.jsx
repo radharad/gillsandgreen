@@ -2,16 +2,18 @@ import { motion } from "framer-motion";
 import { ArrowRight, Fish, Leaf, ChevronDown } from "lucide-react";
 
 import "./Hero.css";
+import heroImg from "/images/hero-bg.jpg";
 
 const Hero = () => {
   return (
-    <section className="hero">
+    <section className="hero" id="hero">
       {/* Background */}
 
       <div className="hero__bg">
         <img
-          src="/images/hero-bg.jpg"
+          src={heroImg}
           alt="Aquaponics Farm"
+          loading="lazy"
         />
       </div>
 
@@ -47,12 +49,26 @@ const Hero = () => {
 
           <div className="hero__buttons">
 
-            <button className="btn-primary">
+            <button
+              className="btn-primary"
+              onClick={() =>
+                document.getElementById("about")?.scrollIntoView({
+                  behavior: "smooth",
+                })
+              }
+            >
               Explore More
               <ArrowRight size={18} />
             </button>
 
-            <button className="btn-secondary">
+            <button
+              className="btn-secondary"
+              onClick={() =>
+                document.getElementById("contact")?.scrollIntoView({
+                  behavior: "smooth",
+                })
+              }
+            >
               Contact Us
             </button>
 
@@ -89,13 +105,19 @@ const Hero = () => {
 
       <motion.div
         className="scroll-down"
-        animate={{
-          y: [0, 10, 0]
+        animate={{ 
+          y: [0, 10, 0] 
         }}
         transition={{
           repeat: Infinity,
-          duration: 1.8
+          duration: 1.8,
         }}
+        onClick={() => {
+          document.getElementById("about")?.scrollIntoView({
+            behavior: "smooth",
+          });
+        }}
+        aria-label="Scroll Down"
       >
         <ChevronDown />
       </motion.div>

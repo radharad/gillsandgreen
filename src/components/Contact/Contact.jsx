@@ -10,7 +10,7 @@ import "./Contact.css";
 
 const Contact = () => {
   return (
-    <section className="contact section">
+    <section className="contact section" id="contact">
 
       <div className="container">
 
@@ -57,12 +57,21 @@ const Contact = () => {
               <div>
                 <h4>Call Us</h4>
 
-                <p>+91 97175 94510</p>
+                <p>
+                  <a href="tel:+919717594510">
+                    +91 97175 94510
+                  </a>
+                </p>
 
-                <p>+91 82771 99510</p>
+                <p>
+                  <a href="tel:+918277199510">
+                    +91 82771 99510
+                  </a>
+                </p>
               </div>
 
             </div>
+
 
             <div className="info-card">
 
@@ -71,7 +80,11 @@ const Contact = () => {
               <div>
                 <h4>Email</h4>
 
-                <p>gillsandgreensbluehills@gmail.com</p>
+                <p>
+                  <a href="mailto:gillsandgreensbluehills@gmail.com">
+                    gillsandgreensbluehills@gmail.com
+                  </a>
+                </p>
               </div>
 
             </div>
@@ -84,12 +97,18 @@ const Contact = () => {
 
                 <h4>Location</h4>
 
-                <p>
-                  No.5/130-C Village Jackanarai,
-                  Aravenu,
-                  Kotagiri,
-                  Nilgiris,
-                  Tamil Nadu - 643201
+                <p className="footer-address">
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=No.5/130-C+Village+Jackanarai,+Aravenu,+Kotagiri,+Nilgiris,+Tamil+Nadu+643201"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {`No. 5/130-C Village Jackanarai,
+                Aravenu,
+                Kotagiri,
+                Nilgiris,
+                Tamil Nadu - 643201`}
+                  </a>
                 </p>
 
               </div>
