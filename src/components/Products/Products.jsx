@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
 import { PRODUCTS } from "../../utils/constants"
 import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 import "./Products.css";
 
 const Products = () => {
+  const navigate = useNavigate();
   return (
     <section className="products section" id="products">
 
@@ -71,11 +73,7 @@ const Products = () => {
 
                   <button
                     className="product-btn"
-                    onClick={() => {
-                      document.getElementById("contact")?.scrollIntoView({
-                        behavior: "smooth",
-                      });
-                    }}
+                    onClick={() => navigate("/contact")}
                   >
                     Learn More
                     <ArrowRight size={18} />

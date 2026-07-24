@@ -11,7 +11,7 @@ import {
   FaLinkedinIn,
   FaYoutube,
 } from "react-icons/fa";
-
+import { Link } from "react-router-dom";
 import "./Footer.css";
 
 const Footer = () => {
@@ -50,31 +50,29 @@ const Footer = () => {
             <h3>Quick Links</h3>
 
             <ul>
-
               <li>
-                <a href="#hero">Home</a>
+                <Link to="/">Home</Link>
               </li>
 
               <li>
-                <a href="#about">About</a>
+                <Link to="/about">About</Link>
               </li>
 
               <li>
-                <a href="#solution">Solution</a>
+                <Link to="/solution">Solution</Link>
               </li>
 
               <li>
-                <a href="#products">Products</a>
+                <Link to="/process">Process</Link>
               </li>
 
               <li>
-                <a href="#founder">Leadership</a>
+                <Link to="/products">Products</Link>
               </li>
 
               <li>
-                <a href="#contact">Contact</a>
+                <Link to="/contact">Contact</Link>
               </li>
-
             </ul>
 
           </div>
@@ -83,18 +81,28 @@ const Footer = () => {
 
           <div className="footer-col">
 
-            <h3>Our Products</h3>
+            <h3>Company</h3>
 
             <ul>
+              <li>
+                <Link to="/market">Market</Link>
+              </li>
 
-              <li>Fresh Organic Greens</li>
+              <li>
+                <Link to="/roadmap">Roadmap</Link>
+              </li>
 
-              <li>Chemical-Free Fish</li>
+              <li>
+                <Link to="/revenue">Revenue Model</Link>
+              </li>
 
-              <li>Organic Vermicompost</li>
+              <li>
+                <Link to="/founder">Leadership</Link>
+              </li>
 
-              <li>Bulk & Institutional Supply</li>
-
+              <li>
+                <Link to="/cta">Partner With Us</Link>
+              </li>
             </ul>
 
           </div>
@@ -102,48 +110,15 @@ const Footer = () => {
           {/* Contact */}
 
           <div className="footer-col">
+            <h3>Our Products</h3>
 
-            <h3>Contact Info</h3>
-
-            <div className="footer-contact">
-
-              <p>
-                <Phone size={18} />
-                <a href="tel:+919717594510">
-                  +91 97175 94510
-                </a>
-              </p>
-
-              <p>
-                <Phone size={18} />
-                <a href="tel:+918277199510">
-                  +91 82771 99510
-                </a>
-              </p>
-
-              <p>
-                <Mail size={18} />
-                <a href="mailto:gillsandgreensbluehills@gmail.com">
-                  gillsandgreensbluehills@gmail.com
-                </a>
-              </p>
-
-              <p>
-                <MapPin size={18} />
-
-                <a
-                  href="https://www.google.com/maps/search/?api=1&query=No.+5/130-C,+Village+Jackanarai,+Aravenu,+Kotagiri,+Nilgiris,+Tamil+Nadu+643201"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {`No. 5/130-C, Village Jackanarai,
-              Aravenu, Kotagiri,
-              Nilgiris, Tamil Nadu - 643201`}
-                </a>
-              </p>
-
-            </div>
-
+            <ul>
+              <li><Link to="/products">Fresh Organic Greens</Link></li>
+              <li><Link to="/products">Chemical-Free Fish</Link></li>
+              <li><Link to="/products">Organic Vermicompost</Link></li>
+              <li><Link to="/products">Bulk & Institutional Supply</Link></li>
+              <li><Link to="/products">Aquaponics Farming Solutions</Link></li>
+            </ul>
           </div>
 
         </div>

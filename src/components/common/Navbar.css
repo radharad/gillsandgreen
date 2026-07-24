@@ -68,7 +68,9 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-
+.navbar.inner-page {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+}
 .navbar.active .logo svg {
   color: var(--primary);
 }

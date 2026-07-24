@@ -9,27 +9,27 @@ import {
 export const NAV_LINKS = [
   {
     name: "Home",
-    href: "#hero",
+    path: "/",
   },
   {
     name: "About",
-    href: "#about",
+    path: "/about",
   },
   {
     name: "Solution",
-    href: "#solution",
+    path: "/solution",
   },
   {
     name: "Products",
-    href: "#products",
+    path: "/products",
   },
   {
-    name: "Leadership",
-    href: "#founder",
+    name: "Process",
+    path: "/process",
   },
   {
     name: "Contact",
-    href: "#contact",
+    path: "/contact",
   },
 ];
 

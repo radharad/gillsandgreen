@@ -6,7 +6,9 @@
   padding: 6rem 0;
   overflow: hidden;
 }
-
+.solution .btn-primary:hover{
+  background-color: var(--primary) !important;
+}
 /* Decorative Background */
 .solution::before {
   content: '';

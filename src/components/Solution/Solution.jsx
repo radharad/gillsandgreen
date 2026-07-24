@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
 import { SOLUTIONSMAP } from "../../utils/constants"
 import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 import "./Solution.css";
 
 const Solution = () => {
+  const navigate = useNavigate();
   return (
     <section className="solution section" id="solution">
 
@@ -91,11 +93,7 @@ const Solution = () => {
 
         <button
           className="btn-primary"
-          onClick={() =>
-            document.getElementById("solution")?.scrollIntoView({
-              behavior: "smooth",
-            })
-          }
+          onClick={() => navigate("/contact")}
         >
           Learn More
           <ArrowRight size={18} />

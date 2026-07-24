@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Fish, Leaf, ChevronDown } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 import "./Hero.css";
 import heroImg from "/images/hero-bg.jpg";
 
 const Hero = () => {
+  const navigate = useNavigate();
   return (
     <section className="hero" id="hero">
       {/* Background */}
@@ -51,11 +53,7 @@ const Hero = () => {
 
             <button
               className="btn-primary"
-              onClick={() =>
-                document.getElementById("about")?.scrollIntoView({
-                  behavior: "smooth",
-                })
-              }
+              onClick={() => navigate("/about")}
             >
               Explore More
               <ArrowRight size={18} />
@@ -63,11 +61,7 @@ const Hero = () => {
 
             <button
               className="btn-secondary"
-              onClick={() =>
-                document.getElementById("contact")?.scrollIntoView({
-                  behavior: "smooth",
-                })
-              }
+              onClick={() => navigate("/contact")}
             >
               Contact Us
             </button>
@@ -105,18 +99,18 @@ const Hero = () => {
 
       <motion.div
         className="scroll-down"
-        animate={{ 
-          y: [0, 10, 0] 
+        animate={{
+          y: [0, 10, 0],
         }}
         transition={{
           repeat: Infinity,
           duration: 1.8,
         }}
-        onClick={() => {
+        onClick={() =>
           document.getElementById("about")?.scrollIntoView({
             behavior: "smooth",
-          });
-        }}
+          })
+        }
         aria-label="Scroll Down"
       >
         <ChevronDown />

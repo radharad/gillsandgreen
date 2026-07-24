@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { NAV_LINKS } from "../../utils/constants";
+import { Link, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import {
   Menu,
@@ -13,6 +15,9 @@ import "./Navbar.css";
 const Navbar = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,49 +31,22 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className={`navbar ${scrolled ? "active" : ""}`}>
-
+    <header className={`navbar ${isHomePage ? (scrolled ? "active" : "") : "inner-page"}`}>
       <div className="container navbar-container">
-
-        {/* Logo */}
-
-        <a
-          href="#hero"
-          className="logo"
-        >
+        <Link to="/" className="logo">
           <Leaf />
-
-          <span>
-            Gills & Greens
-          </span>
-        </a>
-
-        {/* Desktop Menu */}
-
+          <span>Gills & Greens</span>
+        </Link>
         <nav className="nav-links">
-
           {NAV_LINKS.map((item) => (
-
-            <a
-              key={item.name}
-              href={item.href}
-            >
+            <Link key={item.name} to={item.path}>
               {item.name}
-            </a>
-
+            </Link>
           ))}
-
         </nav>
-
-        {/* CTA */}
-
         <button
           className="nav-btn"
-          onClick={() =>
-            document.getElementById("contact")?.scrollIntoView({
-              behavior: "smooth",
-            })
-          }
+          onClick={() => navigate("/products")}
         >
           Get Started
           <ArrowRight size={18} />
@@ -87,27 +65,21 @@ const Navbar = () => {
 
       </div>
 
-      {/* Mobile Menu */}
-
       <div
         className={`mobile-menu ${
           mobileMenu ? "show" : ""
         }`}
       >
 
-        {NAV_LINKS.map((item) => (
-
-          <a
-            key={item.name}
-            href={item.href}
-            onClick={() =>
-              setMobileMenu(false)
-            }
-          >
-            {item.name}
-          </a>
-
-        ))}
+      {NAV_LINKS.map((item) => (
+        <Link
+          key={item.name}
+          to={item.path}
+          onClick={() => setMobileMenu(false)}
+        >
+          {item.name}
+        </Link>
+      ))}
 
         <button className="mobile-btn">
           Get Started

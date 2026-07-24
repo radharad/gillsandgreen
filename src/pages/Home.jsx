@@ -11,7 +11,6 @@ import Founder from "../components/Founder/Founder";
 import CTA from "../components/CTA/CTA";
 import Contact from "../components/Contact/Contact";
 import Process from "../components/Process/Process"
-import ScrollTop from "../components/common/ScrollTop";
 
 const Home = () => {
   return (
@@ -29,8 +28,6 @@ const Home = () => {
       <Founder />
       <CTA />
       <Contact />
-
-      <ScrollTop />
     </>
   );
 };

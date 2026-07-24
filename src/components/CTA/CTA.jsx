@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Phone, Mail } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 import "./CTA.css";
 
 const CTA = () => {
+  const navigate = useNavigate();
   return (
     <section className="cta">
 
@@ -39,11 +41,7 @@ const CTA = () => {
 
             <button
               className="btn-primary"
-              onClick={() =>
-                document.getElementById("contact")?.scrollIntoView({
-                  behavior: "smooth",
-                })
-              }
+              onClick={() => navigate("/about")}
             >
               Become a Partner
               <ArrowRight size={18} />
@@ -51,11 +49,7 @@ const CTA = () => {
 
             <button
               className="btn-secondary"
-              onClick={() =>
-                document.getElementById("contact")?.scrollIntoView({
-                  behavior: "smooth",
-                })
-              }
+              onClick={() => navigate("/contact")}
             >
               Contact Us
             </button>
